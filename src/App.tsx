@@ -4,6 +4,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { GraduationCap, Code2, Briefcase } from "lucide-react";
 import { CursorSpotlight } from "./components/cursor-spotlight";
 import { TypewriterTitle } from "./components/typewriter-title";
+import { AnimatedText } from "./components/animated-text";
+import { ScrollAnimation } from "./components/scroll-animation";
 
 function App() {
   const scrollToSection = (id: string) => {
@@ -30,9 +32,10 @@ function App() {
         <div className="absolute inset-0 bg-[rgba(147,51,234,0.1)]" />
         <div className="container mx-auto px-4 text-center relative z-10">
           <TypewriterTitle />
-          <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto font-mono">
-            Economics Background · AI Solutions · Web Development
-          </p>
+          <AnimatedText 
+            text="Economics Background · AI Solutions · Web Development"
+            className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto font-mono"
+          />
         </div>
       </section>
 
@@ -40,37 +43,45 @@ function App() {
       <section id="about" className="py-20 px-4 relative scroll-mt-20">
         <div className="absolute inset-0 bg-[rgba(147,51,234,0.05)]" />
         <div className="container mx-auto">
-          <h2 className="text-4xl mb-12 text-center text-white font-mono">
-            About Me
-          </h2>
+          <ScrollAnimation>
+            <h2 className="text-4xl mb-12 text-center text-white font-mono">
+              About Me
+            </h2>
+          </ScrollAnimation>
           
           <div className="max-w-3xl mx-auto text-white space-y-8 mb-16">
-            <div className="bg-black border border-purple-500/30 rounded-xl p-6 transition-all duration-300 hover:border-purple-500">
-              <h3 className="text-xl text-white mb-3 font-mono">
-                Houston Roots
-              </h3>
-              <p className="text-lg leading-relaxed text-white/80">
-                Born and raised in the vibrant city of Houston, where my passion for technology and economics began to take shape.
-              </p>
-            </div>
+            <ScrollAnimation>
+              <div className="bg-black border border-purple-500/30 rounded-xl p-6 transition-all duration-300 hover:border-purple-500">
+                <h3 className="text-xl text-white mb-3 font-mono">
+                  Houston Roots
+                </h3>
+                <p className="text-lg leading-relaxed text-white/80">
+                  Born and raised in the vibrant city of Houston, where my passion for technology and economics began to take shape.
+                </p>
+              </div>
+            </ScrollAnimation>
             
-            <div className="bg-black border border-purple-500/30 rounded-xl p-6 transition-all duration-300 hover:border-purple-500">
-              <h3 className="text-xl text-white mb-3 font-mono">
-                Academic Journey
-              </h3>
-              <p className="text-lg leading-relaxed text-white/80">
-                Made the move to College Station to pursue my Bachelor of Science in Economics at Texas A&M University.
-              </p>
-            </div>
+            <ScrollAnimation>
+              <div className="bg-black border border-purple-500/30 rounded-xl p-6 transition-all duration-300 hover:border-purple-500">
+                <h3 className="text-xl text-white mb-3 font-mono">
+                  Academic Journey
+                </h3>
+                <p className="text-lg leading-relaxed text-white/80">
+                  Made the move to College Station to pursue my Bachelor of Science in Economics at Texas A&M University.
+                </p>
+              </div>
+            </ScrollAnimation>
             
-            <div className="bg-black border border-purple-500/30 rounded-xl p-6 transition-all duration-300 hover:border-purple-500">
-              <h3 className="text-xl text-white mb-3 font-mono">
-                Entrepreneurial Spirit
-              </h3>
-              <p className="text-lg leading-relaxed text-white/80">
-                Launched my own web development and AI solutions enterprises during my second year of college.
-              </p>
-            </div>
+            <ScrollAnimation>
+              <div className="bg-black border border-purple-500/30 rounded-xl p-6 transition-all duration-300 hover:border-purple-500">
+                <h3 className="text-xl text-white mb-3 font-mono">
+                  Entrepreneurial Spirit
+                </h3>
+                <p className="text-lg leading-relaxed text-white/80">
+                  Launched my own web development and AI solutions enterprises during my second year of college.
+                </p>
+              </div>
+            </ScrollAnimation>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -91,15 +102,17 @@ function App() {
                 description: "Implementing intelligent systems"
               }
             ].map((item, index) => (
-              <Card key={index} className="bg-black border-purple-500/30 transition-all duration-300 hover:border-purple-500">
-                <CardHeader>
-                  {item.icon}
-                  <CardTitle className="text-white font-mono">
-                    {item.title}
-                  </CardTitle>
-                  <CardDescription className="text-white/60">{item.description}</CardDescription>
-                </CardHeader>
-              </Card>
+              <ScrollAnimation key={index}>
+                <Card className="bg-black border-purple-500/30 transition-all duration-300 hover:border-purple-500">
+                  <CardHeader>
+                    {item.icon}
+                    <CardTitle className="text-white font-mono">
+                      {item.title}
+                    </CardTitle>
+                    <CardDescription className="text-white/60">{item.description}</CardDescription>
+                  </CardHeader>
+                </Card>
+              </ScrollAnimation>
             ))}
           </div>
         </div>
@@ -109,9 +122,11 @@ function App() {
       <section id="projects" className="py-20 px-4 relative scroll-mt-20">
         <div className="absolute inset-0 bg-[rgba(147,51,234,0.05)]" />
         <div className="container mx-auto relative z-10">
-          <h2 className="text-4xl mb-12 text-center text-white font-mono">
-            Featured Projects
-          </h2>
+          <ScrollAnimation>
+            <h2 className="text-4xl mb-12 text-center text-white font-mono">
+              Featured Projects
+            </h2>
+          </ScrollAnimation>
           <div className="grid md:grid-cols-2 gap-8">
             {[
               {
@@ -135,15 +150,17 @@ function App() {
                 description: "AI-powered solutions"
               }
             ].map((project, index) => (
-              <Card key={index} className="bg-black border-purple-500/30 transition-all duration-300 hover:border-purple-500">
-                <CardHeader>
-                  <div className="text-3xl mb-4">{project.emoji}</div>
-                  <CardTitle className="text-white font-mono">
-                    {project.title}
-                  </CardTitle>
-                  <CardDescription className="text-white/60">{project.description}</CardDescription>
-                </CardHeader>
-              </Card>
+              <ScrollAnimation key={index}>
+                <Card className="bg-black border-purple-500/30 transition-all duration-300 hover:border-purple-500">
+                  <CardHeader>
+                    <div className="text-3xl mb-4">{project.emoji}</div>
+                    <CardTitle className="text-white font-mono">
+                      {project.title}
+                    </CardTitle>
+                    <CardDescription className="text-white/60">{project.description}</CardDescription>
+                  </CardHeader>
+                </Card>
+              </ScrollAnimation>
             ))}
           </div>
         </div>
@@ -153,10 +170,14 @@ function App() {
       <section id="contact" className="py-20 px-4 relative scroll-mt-20">
         <div className="absolute inset-0 bg-[rgba(147,51,234,0.05)]" />
         <div className="container mx-auto max-w-2xl relative z-10">
-          <h2 className="text-4xl mb-12 text-center text-white font-mono">
-            Let's Connect
-          </h2>
-          <ContactForm />
+          <ScrollAnimation>
+            <h2 className="text-4xl mb-12 text-center text-white font-mono">
+              Let's Connect
+            </h2>
+          </ScrollAnimation>
+          <ScrollAnimation>
+            <ContactForm />
+          </ScrollAnimation>
         </div>
       </section>
 

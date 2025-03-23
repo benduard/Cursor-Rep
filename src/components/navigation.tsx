@@ -29,17 +29,17 @@ export function Navigation({ scrollToSection }: NavigationProps) {
         </div>
         <div className="flex items-center justify-center gap-6">
           <a href="https://github.com/benduard" target="_blank" rel="noopener noreferrer">
-            <Button variant="ghost" size="icon" className="text-white/80 hover:text-purple-500">
+            <Button variant="ghost" size="icon" className="text-white/80 hover:text-purple-500 relative z-40">
               <Github className="h-5 w-5" />
             </Button>
           </a>
           <a href="https://www.linkedin.com/in/ruben-valderrama-27b956328/" target="_blank" rel="noopener noreferrer">
-            <Button variant="ghost" size="icon" className="text-white/80 hover:text-purple-500">
+            <Button variant="ghost" size="icon" className="text-white/80 hover:text-purple-500 relative z-40">
               <Linkedin className="h-5 w-5" />
             </Button>
           </a>
           <a href="https://www.instagram.com/rubsxen/" target="_blank" rel="noopener noreferrer">
-            <Button variant="ghost" size="icon" className="text-white/80 hover:text-purple-500">
+            <Button variant="ghost" size="icon" className="text-white/80 hover:text-purple-500 relative z-40">
               <Instagram className="h-5 w-5" />
             </Button>
           </a>

@@ -14,9 +14,9 @@ export function CursorSpotlight() {
 
   return (
     <div 
-      className="pointer-events-none fixed inset-0 z-30 transition duration-300"
+      className="pointer-events-none fixed inset-0 z-30 transition duration-300 mix-blend-screen"
       style={{
-        background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(147,51,234,0.1), transparent 40%)`
+        background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(147,51,234,0.15), transparent 40%)`
       }}
     />
   );
