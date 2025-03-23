@@ -1,6 +1,6 @@
 import { Navigation } from "./components/navigation";
 import { ContactForm } from "./components/contact-form";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { GraduationCap, Code2, Briefcase } from "lucide-react";
 import { CursorSpotlight } from "./components/cursor-spotlight";
 import { TypewriterTitle } from "./components/typewriter-title";
