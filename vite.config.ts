@@ -12,6 +12,14 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  server: {
+    port: 5173,
+    host: true,
+    strictPort: true,
+    hmr: {
+      overlay: false
+    }
+  },
   build: {
     outDir: 'dist',
     sourcemap: true,
