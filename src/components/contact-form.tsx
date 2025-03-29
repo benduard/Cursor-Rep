@@ -44,7 +44,8 @@ export function ContactForm() {
           Email: values.email,
           "Inquiry Type": values.inquiryType,
           Message: values.message
-        }]);
+        }])
+        .select('*');
 
       if (error) {
         console.error('Supabase error:', error);
