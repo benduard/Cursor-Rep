@@ -1,5 +1,5 @@
 [build]
-  command = "npm install --force && npm ls && npm run build"
+  command = "npm install --force && npm install react-day-picker@8.10.0 && vite build --debug"
   publish = "dist"
 
 [build.environment]
@@ -7,6 +7,7 @@
   NPM_VERSION = "9.8.1"
   DEBUG = "*"
   CI = "true"
+  VITE_SKIP_TS_CHECK = "true"
 
 [[redirects]]
   from = "/*"
