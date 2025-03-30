@@ -135,12 +135,12 @@ function App() {
                 />
                 <div className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl border-[0.75px] bg-black p-6 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)] md:p-6 min-h-[200px]">
                   <div>
-                    <h3 className="text-xl text-white mb-3 font-mono">
+                <h3 className="text-xl text-white mb-3 font-mono">
                       Background & Vision
-                    </h3>
-                    <p className="text-lg leading-relaxed text-white/80">
+                </h3>
+                <p className="text-lg leading-relaxed text-white/80">
                       As an economist turned tech innovator, I blend data-driven insights with cutting-edge AI solutions. My passion lies in creating intelligent systems that transform how businesses operate and grow.
-                    </p>
+                </p>
                   </div>
                 </div>
               </div>
@@ -158,12 +158,12 @@ function App() {
                 />
                 <div className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl border-[0.75px] bg-black p-6 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)] md:p-6 min-h-[200px]">
                   <div>
-                    <h3 className="text-xl text-white mb-3 font-mono">
+                <h3 className="text-xl text-white mb-3 font-mono">
                       Economics Foundation
-                    </h3>
-                    <p className="text-lg leading-relaxed text-white/80">
+                </h3>
+                <p className="text-lg leading-relaxed text-white/80">
                       My economics background from Texas A&M University gives me a unique perspective on business processes and market dynamics, informing how I approach AI implementation and automation strategies.
-                    </p>
+                </p>
                   </div>
                 </div>
               </div>
@@ -181,12 +181,12 @@ function App() {
                 />
                 <div className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl border-[0.75px] bg-black p-6 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)] md:p-6 min-h-[200px]">
                   <div>
-                    <h3 className="text-xl text-white mb-3 font-mono">
+                <h3 className="text-xl text-white mb-3 font-mono">
                       Tech & Innovation
-                    </h3>
-                    <p className="text-lg leading-relaxed text-white/80">
+                </h3>
+                <p className="text-lg leading-relaxed text-white/80">
                       Specializing in AI-powered solutions and web development, I help businesses automate processes, enhance decision-making, and build robust digital presence through custom solutions.
-                    </p>
+                </p>
                   </div>
                 </div>
               </div>
@@ -240,16 +240,16 @@ function App() {
                     borderWidth={3}
                   />
                   <Card className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl border-[0.75px] bg-black p-6 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)] md:p-6 min-h-[200px]">
-                    <CardHeader>
+                  <CardHeader>
                       {service.icon}
-                      <CardTitle className="text-white font-mono">
+                    <CardTitle className="text-white font-mono">
                         {service.title}
-                      </CardTitle>
+                    </CardTitle>
                       <CardDescription className={`text-white/60 ${service.className || ''}`}>
                         {service.description}
                       </CardDescription>
-                    </CardHeader>
-                  </Card>
+                  </CardHeader>
+                </Card>
                 </div>
               </ScrollAnimation>
             ))}
@@ -313,11 +313,11 @@ function App() {
                     borderWidth={3}
                   />
                   <Card className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl border-[0.75px] bg-black p-6 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)] md:p-6 min-h-[300px]">
-                    <CardHeader>
-                      <div className="text-3xl mb-4">{project.emoji}</div>
-                      <CardTitle className="text-white font-mono">
-                        {project.title}
-                      </CardTitle>
+                  <CardHeader>
+                    <div className="text-3xl mb-4">{project.emoji}</div>
+                    <CardTitle className="text-white font-mono">
+                      {project.title}
+                    </CardTitle>
                       <CardDescription className="text-white/60 space-y-2">
                         <p>{project.description}</p>
                         <p className="font-semibold text-purple-400">Role: {project.role}</p>
@@ -415,8 +415,8 @@ function App() {
                           <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
                       </button>
-                    </CardHeader>
-                  </Card>
+                  </CardHeader>
+                </Card>
                 </div>
               </ScrollAnimation>
             ))}
@@ -435,7 +435,7 @@ function App() {
           </ScrollAnimation>
           
           <div className="max-w-2xl mx-auto">
-            <ScrollAnimation>
+          <ScrollAnimation>
               <div className="relative rounded-[1.25rem] border-[0.75px] border-purple-500/30 p-2 md:rounded-[1.5rem] md:p-3">
                 <GlowingEffect
                   spread={40}
@@ -516,7 +516,7 @@ function App() {
                   </CardContent>
                 </Card>
               </div>
-            </ScrollAnimation>
+          </ScrollAnimation>
           </div>
         </div>
         <Footer />
