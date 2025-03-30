@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { supabase } from "@/lib/supabase";
 import { useState } from "react";
+import { MagnetizeButton } from "@/components/ui/magnetize-button";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -151,13 +152,13 @@ export function ContactForm() {
           )}
         />
         <div className="space-y-4">
-          <Button 
+          <MagnetizeButton 
             type="submit"
-            className="w-full bg-purple-500 text-white hover:bg-purple-600 transition-all font-mono"
+            className="w-full"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Sending...' : 'Send Message'}
-          </Button>
+          </MagnetizeButton>
           {submitStatus === 'success' && (
             <p className="text-green-400 text-center">Message sent successfully!</p>
           )}
