@@ -22,6 +22,7 @@ function MagnetizeButton({
     className,
     particleCount = 12,
     attractRadius = 50,
+    children,
     ...props
 }: MagnetizeButtonProps) {
     const [isAttracting, setIsAttracting] = useState(false);
@@ -67,10 +68,6 @@ function MagnetizeButton({
         <Button
             className={cn(
                 "min-w-40 relative touch-none",
-                "bg-violet-100 dark:bg-violet-900",
-                "hover:bg-violet-200 dark:hover:bg-violet-800",
-                "text-violet-600 dark:text-violet-300",
-                "border border-violet-300 dark:border-violet-700",
                 "transition-all duration-300",
                 className
             )}
@@ -101,7 +98,7 @@ function MagnetizeButton({
                         isAttracting && "scale-110"
                     )}
                 />
-                {isAttracting ? "Attracting" : "Hover me"}
+                {children}
             </span>
         </Button>
     );

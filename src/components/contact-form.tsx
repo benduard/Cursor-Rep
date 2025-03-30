@@ -154,8 +154,10 @@ export function ContactForm() {
         <div className="space-y-4">
           <MagnetizeButton 
             type="submit"
-            className="w-full"
+            className="w-full bg-violet-100 dark:bg-violet-900 hover:bg-violet-200 dark:hover:bg-violet-800 text-violet-600 dark:text-violet-300 border border-violet-300 dark:border-violet-700"
             disabled={isSubmitting}
+            particleCount={14}
+            attractRadius={50}
           >
             {isSubmitting ? 'Sending...' : 'Send Message'}
           </MagnetizeButton>
