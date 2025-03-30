@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "npm ci --force && tsc && vite build",
+    "build": "echo 'Starting build process' && npm ci --force && echo 'TypeScript compilation starting' && tsc && echo 'Vite build starting' && vite build --debug",
     "lint": "eslint .",
     "preview": "vite preview",
     "clean": "rm -rf node_modules/.vite dist"
