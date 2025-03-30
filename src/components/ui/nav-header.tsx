@@ -1,7 +1,9 @@
 "use client"; 
 
-import React, { useRef, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useRef, useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { useIsMobile } from "@/hooks/useMediaQuery";
 
 interface NavHeaderProps {
   scrollToSection: (id: string) => void;
@@ -13,6 +15,15 @@ function NavHeader({ scrollToSection }: NavHeaderProps) {
     width: 0,
     opacity: 0,
   });
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
+
+  // Close mobile menu when window is resized to desktop
+  useEffect(() => {
+    if (!isMobile && isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  }, [isMobile, isMenuOpen]);
 
   const sections = [
     { id: 'home', label: 'Home' },
@@ -23,22 +34,73 @@ function NavHeader({ scrollToSection }: NavHeaderProps) {
     { id: 'contact', label: 'Contact' }
   ];
 
+  const handleNavigation = (id: string) => {
+    scrollToSection(id);
+    if (isMobile) {
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
-    <ul
-      className="relative mx-auto flex w-fit rounded-full border-[0.5px] border-purple-500/10 bg-black/5 backdrop-blur-[2px] p-1"
-      onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
-    >
-      {sections.map((section) => (
-        <Tab 
-          key={section.id} 
-          setPosition={setPosition}
-          onClick={() => scrollToSection(section.id)}
+    <>
+      {/* Mobile Menu Button */}
+      {isMobile && (
+        <div className="flex justify-end">
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="text-white p-2 focus:outline-none"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      )}
+
+      {/* Desktop Navigation */}
+      {!isMobile && (
+        <ul
+          className="relative mx-auto flex w-fit rounded-full border-[0.5px] border-purple-500/10 bg-black/5 backdrop-blur-[2px] p-1"
+          onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
         >
-          {section.label}
-        </Tab>
-      ))}
-      <Cursor position={position} />
-    </ul>
+          {sections.map((section) => (
+            <Tab 
+              key={section.id} 
+              setPosition={setPosition}
+              onClick={() => handleNavigation(section.id)}
+            >
+              {section.label}
+            </Tab>
+          ))}
+          <Cursor position={position} />
+        </ul>
+      )}
+
+      {/* Mobile Navigation */}
+      <AnimatePresence>
+        {isMobile && isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-full left-0 right-0 bg-black/90 backdrop-blur-md z-50 mt-2 rounded-md overflow-hidden shadow-lg border border-purple-500/20"
+          >
+            <ul className="py-2">
+              {sections.map((section) => (
+                <li key={section.id}>
+                  <button
+                    onClick={() => handleNavigation(section.id)}
+                    className="w-full text-left px-6 py-3 text-white hover:bg-purple-500/10 transition-colors"
+                  >
+                    {section.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 
