@@ -24,6 +24,7 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: true,
     rollupOptions: {
+      external: [],
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],

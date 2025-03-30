@@ -1,12 +1,10 @@
 [build]
-  command = "npm install --force && npm install react-day-picker@8.10.0 && vite build --debug"
+  command = "npm install --force && npm install @rollup/rollup-linux-x64-gnu@4.12.0 && vite build"
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "18.19.0"
-  NPM_VERSION = "9.8.1"
-  DEBUG = "*"
-  CI = "true"
+  NODE_VERSION = "20.10.0"
+  NPM_VERSION = "10.2.3"
   VITE_SKIP_TS_CHECK = "true"
 
 [[redirects]]
