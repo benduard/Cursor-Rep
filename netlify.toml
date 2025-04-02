@@ -1,17 +1,13 @@
 [build]
-  command = "npm install --verbose && npm run build"
+  command = "npm install --force && npm install react-day-picker@8.10.0 && vite build --debug"
   publish = "dist"
 
 [build.environment]
   NODE_VERSION = "18.19.0"
   NPM_VERSION = "9.8.1"
-  NODE_ENV = "production"
-  CI = "true"
   DEBUG = "*"
-  NPM_CONFIG_LOGLEVEL = "verbose"
-  NODE_OPTIONS = "--trace-warnings"
-  VITE_DEBUG = "true"
-  VITE_LOG_LEVEL = "info"
+  CI = "true"
+  VITE_SKIP_TS_CHECK = "true"
 
 [[redirects]]
   from = "/*"

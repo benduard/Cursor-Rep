@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import NavHeader from "./ui/nav-header";
+import NavHeader from "@/components/ui/nav-header";
 
 interface NavigationProps {
   scrollToSection: (id: string) => void;

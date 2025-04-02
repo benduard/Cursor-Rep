@@ -1,22 +1,22 @@
 import { Navigation } from "./components/navigation";
 import { ContactForm } from "./components/contact-form";
-import { Card, CardDescription, CardHeader, CardTitle, CardContent } from "./components/ui/card";
+import { Card, CardDescription, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { GraduationCap, Code2, Briefcase } from "lucide-react";
 import { CursorSpotlight } from "./components/cursor-spotlight";
 import { TypewriterTitle } from "./components/typewriter-title";
 import { AnimatedText } from "./components/animated-text";
 import { ScrollAnimation } from "./components/scroll-animation";
-import { BackgroundPaths } from "./components/ui/background-paths";
-import { ParticlesBackground } from "./components/ui/particles-background";
-import { GlowingEffect } from "./components/ui/glowing-effect";
-import { ShootingStars } from "./components/ui/shooting-stars";
-import { Footer } from "./components/ui/footer";
-import { Label } from "./components/ui/label";
-import { Input } from "./components/ui/input";
-import { Textarea } from "./components/ui/textarea";
-import { Button } from "./components/ui/button";
+import { BackgroundPaths } from "@/components/ui/background-paths";
+import { ParticlesBackground } from "@/components/ui/particles-background";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { ShootingStars } from "@/components/ui/shooting-stars";
+import { Footer } from "@/components/ui/footer";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 function App() {
   const [formData, setFormData] = useState({
