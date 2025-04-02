@@ -1,5 +1,5 @@
 [build]
-  command = "rm -rf node_modules package-lock.json && npm cache clean --force && npm install typescript@5.3.3 --save-dev --verbose && npm install --verbose --legacy-peer-deps --force && npm run build"
+  command = "npm install && npm run build"
   publish = "dist"
 
 [build.environment]
@@ -7,61 +7,6 @@
   NPM_VERSION = "9.8.1"
   NODE_ENV = "production"
   CI = "true"
-  
-  # Build optimization settings
-  NODE_OPTIONS = "--no-warnings --max-old-space-size=4096"
-  VITE_SKIP_TS_CHECK = "true"
-  VITE_BASE_URL = "/"
-  VITE_ALIAS = "#"
-  VITE_MODULE_RESOLUTION = "bundler"
-  VITE_FORCE = "true"
-  
-  # NPM configuration
-  NPM_CONFIG_LOGLEVEL = "verbose"
-  NPM_CONFIG_FORCE = "true"
-  NPM_CONFIG_WORKSPACE = "."
-  NPM_CONFIG_PREFER_OFFLINE = "false"
-  NPM_CONFIG_LEGACY_PEER_DEPS = "true"
-  NPM_CONFIG_FETCH_RETRIES = "5"
-  NPM_CONFIG_FETCH_RETRY_FACTOR = "2"
-  NPM_CONFIG_FETCH_RETRY_MINTIMEOUTOUT = "10000"
-  NPM_CONFIG_FETCH_RETRY_MAXTIMEOUT = "60000"
-  
-  # Node.js configuration
-  NODE_PATH = "./node_modules"
-  NODE_NO_WARNINGS = "1"
-  NODE_EXTRA_CA_CERTS = "/etc/ssl/certs/ca-certificates.crt"
-  NODE_TLS_REJECT_UNAUTHORIZED = "0"
-  
-  # Debug settings
-  DEBUG = "*"
-  NODE_DEBUG = "*"
-  NODE_DEBUG_NATIVE = "*"
-  NODE_DEBUG_NET = "*"
-  NODE_DEBUG_HTTP = "*"
-  NODE_DEBUG_HTTPS = "*"
-  NODE_DEBUG_STREAM = "*"
-  NODE_DEBUG_TLS = "*"
-  NODE_DEBUG_ZLIB = "*"
-  NODE_DEBUG_CRYPTO = "*"
-  NODE_DEBUG_DNS = "*"
-  NODE_DEBUG_FS = "*"
-  NODE_DEBUG_PATH = "*"
-  NODE_DEBUG_OS = "*"
-  NODE_DEBUG_PROCESS = "*"
-  NODE_DEBUG_CHILD_PROCESS = "*"
-  NODE_DEBUG_CLUSTER = "*"
-  NODE_DEBUG_V8 = "*"
-  NODE_DEBUG_VM = "*"
-  NODE_DEBUG_WORKER_THREADS = "*"
-  NODE_DEBUG_PERFORMANCE_HOOKS = "*"
-  NODE_DEBUG_INSPECTOR = "*"
-  NODE_DEBUG_QUIC = "*"
-  NODE_DEBUG_WASI = "*"
-  NODE_DEBUG_WEBSTREAM = "*"
-  NODE_DEBUG_WEBCODECS = "*"
-  NODE_DEBUG_WEBUSB = "*"
-  NODE_DEBUG_WEBGPIO = "*"
 
 [[redirects]]
   from = "/*"
