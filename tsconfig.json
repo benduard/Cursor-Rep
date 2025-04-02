@@ -32,12 +32,12 @@
     },
 
     /* Type Checking */
-    "types": ["vite/client", "react", "react-dom"],
+    "types": ["node", "vite/client"],
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src", "src/types/*.d.ts"],
+  "include": ["src", "src/types/*.d.ts", "vite.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
