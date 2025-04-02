@@ -1,5 +1,5 @@
 [build]
-  command = "rm -rf node_modules package-lock.json && npm install && npm run build"
+  command = "rm -rf node_modules package-lock.json && npm install --verbose && npm run build"
   publish = "dist"
 
 [build.environment]
@@ -9,6 +9,8 @@
   NODE_ENV = "production"
   CI = "true"
   DEBUG = "*"
+  NPM_CONFIG_LOGLEVEL = "verbose"
+  NODE_OPTIONS = "--trace-warnings"
 
 [[redirects]]
   from = "/*"
