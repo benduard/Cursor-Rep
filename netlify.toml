@@ -1,5 +1,5 @@
 [build]
-  command = "npm install typescript@5.3.3 --save-dev --verbose && npm ci --verbose && npm run build"
+  command = "rm -rf node_modules package-lock.json && npm install typescript@5.3.3 --save-dev --verbose && npm install --verbose && npm run build"
   publish = "dist"
 
 [build.environment]
@@ -13,6 +13,7 @@
   NODE_OPTIONS = "--trace-warnings --max-old-space-size=4096"
   FORCE_COLOR = "true"
   NODE_DEBUG = "*"
+  NODE_PATH = "./node_modules"
 
 [[redirects]]
   from = "/*"
