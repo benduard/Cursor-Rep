@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
+      '@': path.resolve(__dirname, './src'),
       '#': path.resolve(__dirname, './src'),
     },
   },
@@ -38,6 +39,12 @@ export default defineConfig({
       'motion'
     ],
     exclude: ['@supabase/supabase-js']
+  },
+  build: {
+    sourcemap: true,
+    rollupOptions: {
+      external: [],
+    },
   },
   server: {
     port: 5173,
