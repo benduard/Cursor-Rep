@@ -11,7 +11,7 @@ export function TypewriterTitle() {
         wrapper="h1"
         cursor={false}
         repeat={0}
-        speed={50}
+        speed={8}
         className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-white font-mono"
         style={{
           display: 'inline-block',
@@ -26,7 +26,7 @@ export function TypewriterTitle() {
         wrapper="h1"
         cursor={true}
         repeat={0}
-        speed={50}
+        speed={8}
         className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-white font-mono"
         style={{
           display: 'inline-block',

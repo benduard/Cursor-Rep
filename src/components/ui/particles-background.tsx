@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react"
 import { Particles } from "./particles"
 
-interface ParticlesBackgroundProps {
-  quantity?: number;
-}
-
-export function ParticlesBackground({ quantity = 300 }: ParticlesBackgroundProps) {
+export function ParticlesBackground() {
   const [color, setColor] = useState("#ffffff")
 
   useEffect(() => {
@@ -16,7 +12,7 @@ export function ParticlesBackground({ quantity = 300 }: ParticlesBackgroundProps
   return (
     <Particles
       className="opacity-70"
-      quantity={quantity}
+      quantity={300}
       staticity={5}
       ease={10}
       size={0.5}

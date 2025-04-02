@@ -26,14 +26,14 @@ export function Footer() {
                 rel="noopener noreferrer"
                 onMouseEnter={() => setActiveIcon(id)}
                 onMouseLeave={() => setActiveIcon(null)}
-                className="relative"
+                className="relative group"
               >
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="text-white/80 relative z-10 hover:text-white/80 hover:bg-transparent"
+                  className="text-white/60 relative z-10 hover:text-white transition-colors duration-300 hover:bg-transparent"
                 >
-                  <Icon className="h-5 w-5 hover:text-white/80" />
+                  <Icon className="h-6 w-6 transition-transform duration-300 group-hover:scale-110" />
                 </Button>
                 {activeIcon === id && (
                   <motion.div

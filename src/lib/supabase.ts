@@ -1,12 +1,21 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = 'https://cfiunbuuxhitwrdxgctt.supabase.co'
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNmaXVuYnV1eGhpdHdyZHhnY3R0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI3ODYwODQsImV4cCI6MjA1ODM2MjA4NH0.b4GSkrbwV6LRIh3sDoVWNdfeQyuxmNZj4bwqlKqAdjI'
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+if (!supabaseUrl || !supabaseKey) {
+  throw new Error('Missing Supabase environment variables');
+}
+
+// Create Supabase client with additional options
+export const supabase = createClient(supabaseUrl, supabaseKey, {
   auth: {
     autoRefreshToken: true,
-    persistSession: true,
-    detectSessionInUrl: true
+    persistSession: false
+  },
+  global: {
+    headers: {
+      'Authorization': `Bearer ${supabaseKey}`
+    }
   }
-}) 
+}); 

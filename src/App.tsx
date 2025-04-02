@@ -15,28 +15,10 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useIsMobile, useIsTablet } from "@/hooks/useMediaQuery";
 
 function App() {
-  const isMobile = useIsMobile();
-  const isTablet = useIsTablet();
-  const isSmallScreen = isMobile || isTablet;
-  
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -63,6 +45,7 @@ function App() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    // Add your form submission logic here
     setTimeout(() => {
       setIsSubmitting(false);
     }, 1000);
@@ -71,7 +54,7 @@ function App() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = isMobile ? 60 : 80;
+      const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -84,133 +67,126 @@ function App() {
 
   return (
     <div className="min-h-screen bg-black">
-      {!isMobile && <CursorSpotlight />}
+      <CursorSpotlight />
+      <ParticlesBackground />
+      <Navigation scrollToSection={scrollToSection} />
       
-      <ParticlesBackground quantity={isMobile ? 15 : 30} />
-      
-      <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/80 backdrop-blur-md shadow-md' : 'bg-black/10 backdrop-blur-[2px]'}`}>
-        <Navigation scrollToSection={scrollToSection} />
-      </div>
-      
-      <section id="home" className="relative pt-24 pb-8 md:pb-16">
+      {/* Hero Section */}
+      <section id="home" className="relative pt-24 pb-16">
         <div className="absolute inset-0 bg-gradient-to-b from-[rgba(147,51,234,0.15)] via-[rgba(147,51,234,0.08)] to-transparent" />
         <BackgroundPaths />
-        
-        {!isMobile && (
-          <>
-            <ShootingStars
-              starColor="#9E00FF"
-              trailColor="#2EB9DF"
-              minSpeed={15}
-              maxSpeed={35}
-              minDelay={1000}
-              maxDelay={3000}
-            />
-            <ShootingStars
-              starColor="#FF0099"
-              trailColor="#FFB800"
-              minSpeed={10}
-              maxSpeed={25}
-              minDelay={2000}
-              maxDelay={4000}
-            />
-          </>
-        )}
+        <ShootingStars
+          starColor="#9E00FF"
+          trailColor="#2EB9DF"
+          minSpeed={15}
+          maxSpeed={35}
+          minDelay={1000}
+          maxDelay={3000}
+        />
+        <ShootingStars
+          starColor="#FF0099"
+          trailColor="#FFB800"
+          minSpeed={10}
+          maxSpeed={25}
+          minDelay={2000}
+          maxDelay={4000}
+        />
         <ShootingStars
           starColor="#00FF9E"
           trailColor="#00B8FF"
-          minSpeed={isMobile ? 30 : 20}
-          maxSpeed={isMobile ? 50 : 40}
-          minDelay={isMobile ? 2500 : 1500}
-          maxDelay={isMobile ? 5000 : 3500}
+          minSpeed={20}
+          maxSpeed={40}
+          minDelay={1500}
+          maxDelay={3500}
         />
         <div className="container mx-auto px-4 text-center relative z-10">
           <TypewriterTitle />
           <AnimatedText 
             text="Economist | AI Strategist | Web Developer"
-            className="text-base sm:text-xl md:text-2xl text-white/80 max-w-3xl mx-auto font-mono mb-4 md:mb-6"
+            className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto font-mono mb-6"
           />
           <AnimatedText 
             text="I create AI-powered systems that help businesses grow smarter and faster."
-            className="text-sm sm:text-lg md:text-xl text-white/70 max-w-2xl mx-auto font-mono"
+            className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto font-mono"
           />
         </div>
       </section>
 
-      <section id="about" className="py-10 md:py-16 px-4 relative scroll-mt-16 -mt-8 md:-mt-16">
+      {/* About Section */}
+      <section id="about" className="py-16 px-4 relative scroll-mt-16 -mt-16">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black" />
         <div className="container mx-auto relative z-10">
           <ScrollAnimation>
-            <h2 className="text-3xl md:text-4xl mb-8 md:mb-12 text-center text-white font-mono">
+            <h2 className="text-4xl mb-12 text-center text-white font-mono">
               About Me
             </h2>
           </ScrollAnimation>
           
-          <div className="max-w-3xl mx-auto text-white space-y-6 md:space-y-8 mb-12 md:mb-16">
+          <div className="max-w-3xl mx-auto text-white space-y-8 mb-16">
             <ScrollAnimation>
-              <div className="relative rounded-[1rem] md:rounded-[1.25rem] border-[0.75px] border-purple-500/30 p-2 md:p-3">
+              <div className="relative rounded-[1.25rem] border-[0.75px] border-purple-500/30 p-2 md:rounded-[1.5rem] md:p-3">
                 <GlowingEffect
-                  spread={isMobile ? 20 : 40}
+                  spread={40}
                   glow={true}
                   disabled={false}
-                  proximity={isMobile ? 32 : 64}
+                  proximity={64}
                   inactiveZone={0.01}
-                  borderWidth={isMobile ? 2 : 3}
+                  borderWidth={3}
                 />
-                <div className="relative flex h-full flex-col justify-between gap-4 md:gap-6 overflow-hidden rounded-xl border-[0.75px] bg-black p-4 md:p-6 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)] min-h-[180px] md:min-h-[200px]">
+                <div className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl border-[0.75px] bg-black p-6 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)] md:p-6 min-h-[200px]">
                   <div>
-                    <h3 className="text-lg md:text-xl text-white mb-2 md:mb-3 font-mono">
+                <h3 className="text-xl text-white mb-3 font-mono">
                       Background & Vision
-                    </h3>
-                    <p className="text-base md:text-lg leading-relaxed text-white/80">
+                </h3>
+                <p className="text-lg leading-relaxed text-white/80">
                       As an economist turned tech innovator, I blend data-driven insights with cutting-edge AI solutions. My passion lies in creating intelligent systems that transform how businesses operate and grow.
-                    </p>
+                </p>
                   </div>
                 </div>
               </div>
             </ScrollAnimation>
             
             <ScrollAnimation>
-              <div className="relative rounded-[1rem] md:rounded-[1.25rem] border-[0.75px] border-purple-500/30 p-2 md:p-3">
+              <div className="relative rounded-[1.25rem] border-[0.75px] border-purple-500/30 p-2 md:rounded-[1.5rem] md:p-3">
                 <GlowingEffect
-                  spread={isMobile ? 20 : 40}
+                  spread={40}
                   glow={true}
                   disabled={false}
-                  proximity={isMobile ? 32 : 64}
+                  proximity={64}
                   inactiveZone={0.01}
-                  borderWidth={isMobile ? 2 : 3}
+                  borderWidth={3}
                 />
-                <div className="relative flex h-full flex-col justify-between gap-4 md:gap-6 overflow-hidden rounded-xl border-[0.75px] bg-black p-4 md:p-6 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)] min-h-[180px] md:min-h-[200px]">
+                <div className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl border-[0.75px] bg-black p-6 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)] md:p-6 min-h-[200px]">
                   <div>
-                    <h3 className="text-lg md:text-xl text-white mb-2 md:mb-3 font-mono">
+                <h3 className="text-xl text-white mb-3 font-mono">
                       Economics Foundation
-                    </h3>
-                    <p className="text-base md:text-lg leading-relaxed text-white/80">
+                </h3>
+                <p className="text-lg leading-relaxed text-white/80">
                       My economics background from Texas A&M University gives me a unique perspective on business processes and market dynamics, informing how I approach AI implementation and automation strategies.
-                    </p>
+                </p>
                   </div>
                 </div>
               </div>
             </ScrollAnimation>
             
             <ScrollAnimation>
-              <div className="relative rounded-[1rem] md:rounded-[1.25rem] border-[0.75px] border-purple-500/30 p-2 md:p-3">
+              <div className="relative rounded-[1.25rem] border-[0.75px] border-purple-500/30 p-2 md:rounded-[1.5rem] md:p-3">
                 <GlowingEffect
-                  spread={isMobile ? 20 : 40}
+                  spread={40}
                   glow={true}
                   disabled={false}
-                  proximity={isMobile ? 32 : 64}
+                  proximity={64}
                   inactiveZone={0.01}
-                  borderWidth={isMobile ? 2 : 3}
+                  borderWidth={3}
                 />
-                <div className="relative flex h-full flex-col justify-between gap-4 md:gap-6 overflow-hidden rounded-xl border-[0.75px] bg-black p-4 md:p-6 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)] min-h-[180px] md:min-h-[200px]">
+                <div className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl border-[0.75px] bg-black p-6 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)] md:p-6 min-h-[200px]">
                   <div>
-                    <h3 className="text-lg md:text-xl text-white mb-2 md:mb-3 font-mono">
+                <h3 className="text-xl text-white mb-3 font-mono">
                       Tech & Innovation
-                    </h3>
-                    <p className="text-base md:text-lg leading-relaxed text-white/80">
+                </h3>
+                <p className="text-lg leading-relaxed text-white/80">
                       Specializing in AI-powered solutions and web development, I help businesses automate processes, enhance decision-making, and build robust digital presence through custom solutions.
-                    </p>
+                </p>
                   </div>
                 </div>
               </div>
@@ -219,7 +195,8 @@ function App() {
         </div>
       </section>
 
-      <section id="services" className="py-10 md:py-16 px-4 relative scroll-mt-16">
+      {/* Services Section */}
+      <section id="services" className="py-16 px-4 relative scroll-mt-16">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-[rgba(147,51,234,0.03)] to-black" />
         <div className="container mx-auto relative z-10">
           <ScrollAnimation>
@@ -280,6 +257,7 @@ function App() {
         </div>
       </section>
 
+      {/* Projects Section */}
       <section id="projects" className="py-16 px-4 relative scroll-mt-16">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-[rgba(147,51,234,0.03)] to-black" />
         <div className="container mx-auto relative z-10">
@@ -341,10 +319,10 @@ function App() {
                       {project.title}
                     </CardTitle>
                       <CardDescription className="text-white/60 space-y-2">
-                        <p>{project.description}</p>
-                        <p className="font-semibold text-purple-400">Role: {project.role}</p>
-                        <p className="font-semibold text-green-400">Impact: {project.impact}</p>
-                        <p className="text-white/40 text-sm">Tech Stack: {project.tech}</p>
+                        <div>{project.description}</div>
+                        <div className="font-semibold text-purple-400">Role: {project.role}</div>
+                        <div className="font-semibold text-green-400">Impact: {project.impact}</div>
+                        <div className="text-white/40 text-sm">Tech Stack: {project.tech}</div>
                       </CardDescription>
                     </CardHeader>
                   </Card>
@@ -355,6 +333,7 @@ function App() {
         </div>
       </section>
 
+      {/* Blog Section */}
       <section id="blog" className="py-16 px-4 relative scroll-mt-16">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-[rgba(147,51,234,0.03)] to-black" />
         <div className="container mx-auto relative z-10">
@@ -445,6 +424,7 @@ function App() {
         </div>
       </section>
 
+      {/* Contact Section */}
       <section id="contact" className="py-16 px-4 relative scroll-mt-16">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-[rgba(147,51,234,0.03)] to-black" />
         <div className="container mx-auto relative z-10">
@@ -453,115 +433,13 @@ function App() {
               Get in Touch
             </h2>
           </ScrollAnimation>
-          
-          <div className="max-w-2xl mx-auto">
-          <ScrollAnimation>
-              <div className="relative rounded-[1.25rem] border-[0.75px] border-purple-500/30 p-2 md:rounded-[1.5rem] md:p-3">
-                <GlowingEffect
-                  spread={40}
-                  glow={true}
-                  disabled={false}
-                  proximity={64}
-                  inactiveZone={0.01}
-                  borderWidth={3}
-                />
-                <Card className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl border-[0.75px] bg-black p-6 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)] md:p-6">
-                  <CardHeader>
-                    <CardTitle className="text-white font-mono">
-                      Let's Work Together
-                    </CardTitle>
-                    <CardDescription className="text-white/60">
-                      Have a project in mind? I'd love to hear about it. Send me a message and I'll get back to you as soon as possible.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <div className="space-y-2">
-                        <Label htmlFor="name" className="text-white">Name</Label>
-                        <Input
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          className="bg-black/50 border-purple-500/30 text-white"
-                          required
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="email" className="text-white">Email</Label>
-                        <Input
-                          id="email"
-                          name="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          className="bg-black/50 border-purple-500/30 text-white"
-                          required
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="service" className="text-white">What can I help you with?</Label>
-                        <Select value={formData.service} onValueChange={handleServiceChange}>
-                          <SelectTrigger className="bg-black/50 border-purple-500/30 text-white">
-                            <SelectValue placeholder="Select an option" />
-                          </SelectTrigger>
-                          <SelectContent className="bg-black border-purple-500/30">
-                            <SelectItem value="project-collaboration">Project collaboration</SelectItem>
-                            <SelectItem value="hiring-inquiry">Hiring inquiry</SelectItem>
-                            <SelectItem value="ai-business-consulting">AI Business Consulting</SelectItem>
-                            <SelectItem value="just-saying-hi">Just saying hi</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="message" className="text-white">Tell me a bit more</Label>
-                        <Textarea
-                          id="message"
-                          name="message"
-                          value={formData.message}
-                          onChange={handleChange}
-                          className="bg-black/50 border-purple-500/30 text-white min-h-[150px]"
-                          required
-                        />
-                      </div>
-                      <Button 
-                        type="submit" 
-                        className="w-full bg-purple-500 hover:bg-purple-600 text-white"
-                        disabled={isSubmitting}
-                      >
-                        {isSubmitting ? "Sending..." : "Send Message"}
-                      </Button>
-                    </form>
-                  </CardContent>
-                </Card>
-              </div>
-          </ScrollAnimation>
+          <div className="max-w-5xl mx-auto">
+            <ContactForm />
           </div>
         </div>
-        <Footer />
       </section>
 
-      <footer className="py-12 px-4 border-t border-purple-500/30 bg-black relative z-10">
-        <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex gap-6">
-              <a href="https://github.com/benduard" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-purple-500 transition-colors">
-                GitHub
-              </a>
-              <a href="https://www.linkedin.com/in/ruben-valderrama-27b956328/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-purple-500 transition-colors">
-                LinkedIn
-              </a>
-              <a href="https://www.instagram.com/rubsxen/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-purple-500 transition-colors">
-                Instagram
-              </a>
-            </div>
-            <div className="text-white/60 text-sm font-mono">
-              © 2025 Ruben Valderrama
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
