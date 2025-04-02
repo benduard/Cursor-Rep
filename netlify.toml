@@ -18,6 +18,7 @@
   VITE_ALIAS = "#"
   NPM_CONFIG_LEGACY_PEER_DEPS = "true"
   NODE_NO_WARNINGS = "1"
+  VITE_MODULE_RESOLUTION = "bundler"
 
 [[redirects]]
   from = "/*"
