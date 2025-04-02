@@ -29,7 +29,14 @@
       "@/styles/*": ["./src/styles/*"],
       "@/utils/*": ["./src/utils/*"],
       "@/types/*": ["./src/types/*"]
-    }
+    },
+
+    /* Type Checking */
+    "types": ["react", "react-dom"],
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
