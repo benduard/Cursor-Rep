@@ -1,5 +1,5 @@
 [build]
-  command = "rm -rf node_modules package-lock.json && npm install typescript@5.3.3 --save-dev --verbose && npm install --verbose && npm run build"
+  command = "rm -rf node_modules package-lock.json && npm cache clean --force && npm install typescript@5.3.3 --save-dev --verbose && npm install --verbose --legacy-peer-deps && npm run build"
   publish = "dist"
 
 [build.environment]
@@ -17,6 +17,7 @@
   VITE_BASE_URL = "/"
   VITE_ALIAS = "#"
   NPM_CONFIG_LEGACY_PEER_DEPS = "true"
+  NODE_NO_WARNINGS = "1"
 
 [[redirects]]
   from = "/*"
