@@ -1,5 +1,5 @@
 [build]
-  command = "rm -rf node_modules package-lock.json && npm install --verbose && npm install typescript@5.3.3 --save-dev --verbose && npm run build"
+  command = "rm -rf node_modules package-lock.json && npm install --verbose && npm install typescript@5.3.3 --save-dev --verbose && npx tsc --skipLibCheck --noEmit --verbose && vite build --mode production --debug"
   publish = "dist"
 
 [build.environment]
