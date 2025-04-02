@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "vite --force",
-    "build": "npx tsc --skipLibCheck --noEmit && vite build --mode production",
+    "build": "npm install typescript@5.3.3 --save-dev && tsc --skipLibCheck --noEmit && vite build --mode production",
     "lint": "eslint .",
     "preview": "vite preview",
     "clean": "rm -rf node_modules/.vite dist"
