@@ -102,5 +102,11 @@
   },
   "workspaces": [
     "."
-  ]
+  ],
+  "exports": {
+    ".": {
+      "import": "./src/main.tsx",
+      "types": "./src/main.tsx"
+    }
+  }
 }
