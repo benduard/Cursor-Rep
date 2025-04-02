@@ -45,11 +45,18 @@ export default defineConfig({
     rollupOptions: {
       external: [],
     },
+    target: 'esnext',
+    minify: 'terser',
+    cssCodeSplit: true
   },
   server: {
     port: 5173,
     host: 'localhost',
     strictPort: true,
     open: true
+  },
+  define: {
+    'process.env': {},
+    'import.meta.env': {}
   }
 });
