@@ -4,16 +4,17 @@
   "version": "0.0.0",
   "type": "module",
   "engines": {
-    "node": ">=18.0.0 <19.0.0",
-    "npm": ">=9.0.0 <10.0.0"
+    "node": "18.19.0",
+    "npm": "9.8.1"
   },
   "scripts": {
     "dev": "vite --force",
-    "prebuild": "npm install typescript@5.3.3 --save-dev --verbose",
-    "build": "npx tsc --skipLibCheck --noEmit --verbose --pretty && vite build --mode production --debug",
+    "prebuild": "rm -rf node_modules package-lock.json && npm cache clean --force && npm install typescript@5.3.3 --save-dev --verbose",
+    "build": "NODE_OPTIONS='--no-warnings' npx tsc --skipLibCheck --noEmit --verbose --pretty && vite build --mode production --debug",
     "lint": "eslint .",
     "preview": "vite preview",
-    "clean": "rm -rf node_modules/.vite dist"
+    "clean": "rm -rf node_modules/.vite dist",
+    "postinstall": "npm dedupe"
   },
   "dependencies": {
     "@hookform/resolvers": "3.3.4",
