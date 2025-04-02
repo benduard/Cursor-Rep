@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "vite --force",
     "prebuild": "npm install typescript@5.3.3 --save-dev --verbose",
-    "build": "npx tsc --skipLibCheck --noEmit --verbose && vite build --mode production --debug",
+    "build": "npx tsc --skipLibCheck --noEmit --verbose --pretty && vite build --mode production --debug",
     "lint": "eslint .",
     "preview": "vite preview",
     "clean": "rm -rf node_modules/.vite dist"
