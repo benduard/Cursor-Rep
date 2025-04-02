@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build --debug",
+    "build": "npm install typescript && tsc --noEmit && vite build --debug",
     "lint": "eslint .",
     "preview": "vite preview"
   },
