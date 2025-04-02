@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "vite --force",
     "prebuild": "rm -rf node_modules package-lock.json && npm cache clean --force && npm install typescript@5.3.3 --save-dev --verbose",
-    "build": "NODE_OPTIONS='--no-warnings' npx tsc --skipLibCheck --noEmit --verbose --pretty && vite build --mode production --debug",
+    "build": "NODE_OPTIONS='--no-warnings' npx tsc --skipLibCheck --noEmit --verbose --pretty && vite build --mode production --debug --force",
     "lint": "eslint .",
     "preview": "vite preview",
     "clean": "rm -rf node_modules/.vite dist",
