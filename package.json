@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "npm install typescript && tsc --noEmit && vite build --debug",
+    "build": "tsc --noEmit && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -65,6 +65,7 @@
     "sonner": "1.4.0",
     "tailwind-merge": "2.2.1",
     "tailwindcss-animate": "1.0.7",
+    "typescript": "5.3.3",
     "vaul": "0.9.0",
     "zod": "3.22.4"
   },
@@ -81,7 +82,6 @@
     "eslint-plugin-react-refresh": "0.4.5",
     "postcss": "8.4.35",
     "tailwindcss": "3.4.1",
-    "typescript": "5.3.3",
     "vite": "5.4.15"
   },
   "resolutions": {
