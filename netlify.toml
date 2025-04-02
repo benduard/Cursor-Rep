@@ -1,5 +1,5 @@
 [build]
-  command = "rm -rf node_modules package-lock.json && npm install --verbose && npm install typescript@5.3.3 --save-dev --verbose && npx tsc --skipLibCheck --noEmit --verbose && vite build --mode production --debug"
+  command = "npm ci && npm run build"
   publish = "dist"
 
 [build.environment]
@@ -10,7 +10,7 @@
   CI = "true"
   DEBUG = "*"
   NPM_CONFIG_LOGLEVEL = "verbose"
-  NODE_OPTIONS = "--trace-warnings"
+  NODE_OPTIONS = "--trace-warnings --max-old-space-size=4096"
 
 [[redirects]]
   from = "/*"
