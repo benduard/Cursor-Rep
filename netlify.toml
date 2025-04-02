@@ -16,6 +16,7 @@
   NODE_PATH = "./node_modules"
   VITE_BASE_URL = "/"
   VITE_ALIAS = "#"
+  NPM_CONFIG_LEGACY_PEER_DEPS = "true"
 
 [[redirects]]
   from = "/*"
